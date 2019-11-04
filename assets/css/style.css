@@ -1,0 +1,86 @@
+h1 { 
+    
+                background-color: black; 
+                color:white;
+                position: fixed ;
+                width: 225px;
+                align-content: centre; 
+                margin-left: 30%;
+                margin-right: 25%;
+}
+
+.menu{          
+                font-size: 15px;
+                margin-left: 70%;
+                position: float;
+                z-index: 10;
+                margin-top: 10px;
+            } 
+
+
+h2 {
+                margin-left: 25%;
+                position:relative;
+
+}
+
+h3 {
+                position: relative;
+                font-style: strong, ;
+                font-display: underline; 
+            }
+
+
+            .background {   z-index: 0;
+                position: absolute;
+                width: 100%;
+                margin-top: 2%;
+   } 
+
+
+.content {      
+                width: 650px;
+                height: 350px;
+                background-color:white;
+                position: absolute;
+                z-index: 1;
+                margin-top: 100px;
+                margin-bottom: 50%;
+                margin-left: 30%;
+                margin-right: 30%;
+                align-content: center;
+                
+            }                  
+
+
+ .portait {       z-index:1;  
+                
+                position: absolute;
+                display: inline-block;
+                width: 120px;
+                height: 150px;
+                margin-top: 13%;
+                margin-left: 30%;
+
+        } */
+
+img {
+    float:left;
+}
+body {
+    background-image: url('../images/ripples.png') 
+}
+.text {        z-index:1;  
+                position: absolute;
+                overflow: auto ;
+                display: inline-block
+                } */
+                
+
+footer      {   background-color: grey; 
+                right: 0;
+                bottom: 0;
+                left:0; 
+
+            
+    }
