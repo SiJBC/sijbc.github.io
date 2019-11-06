@@ -1,17 +1,22 @@
 h4      {margin-left: 5%;
         }        
 
-.logo {     height: 100px;
-            width: 30%;
+img 
+        {     
+                height: 200px;
+                 width: 25%;
+}
 
-              
-        }
-
-.box   { height: 25%;
-        width: 40%;
-        border-style: solid; 
-        border-color: black; 
+.content_box_1 {  
+                
+        width: 940px;
+        height: 750px;
+        border-color: #4aaaa5;
+        border-style: solid;
+        background-color: #ffffff;
+        margin-bottom: 15%;
         margin-left: 5%;
-        margin-top: 5%; 
 
-        }
+
+
+    }               
