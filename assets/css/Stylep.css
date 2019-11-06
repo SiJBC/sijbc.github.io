@@ -1,0 +1,17 @@
+h4      {margin-left: 5%;
+        }        
+
+.logo {     height: 100px;
+            width: 30%;
+
+              
+        }
+
+.box   { height: 25%;
+        width: 40%;
+        border-style: solid; 
+        border-color: black; 
+        margin-left: 5%;
+        margin-top: 5%; 
+
+        }

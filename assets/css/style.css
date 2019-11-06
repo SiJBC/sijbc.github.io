@@ -1,33 +1,39 @@
 h1 { 
     
     
-    color:black;
-    font-size: 25px;
-    width: 225px;
+    color:white;
+    background-color:#4aaaa5;
+    height: 65px;
+    width: 40%;
+    font-size: 55px;
     align-content: centre; 
     margin-left: 5%;
     margin-right: 25%;
+    margin-bottom: 1px;
 }
 
 .menu{          
     font-size: 15px;
-    margin-left: 70%;
+    margin-left: 75%;
     position: fixed;
-    z-index: 10;
-    margin-top: 10px;
+    margin-top: -5%;
+   
 } 
 
 
 h2 {
-    margin-left: 25%;
+   color: #4aaaa5;
+    margin-left: 5%;
     
 
 }
 
 h3 {
-    margin-left: 5%;
+    
     font-style: strong, ;
+    color: #4aaaa5;
     font-display: underline; 
+    font-size: 55px;    
 }
 
 
@@ -40,9 +46,11 @@ body {
                 
                 width: 940px;
                 height: 600px;
-                background-color: white;
-                margin-top: 5%;
+                border-color: #4aaaa5;
                 border-style: solid;
+                background-color: #ffffff;
+                margin-bottom: 15%;
+                margin-left: 5%;
         
 
 
@@ -55,21 +63,21 @@ body {
                 float: left;    
                 width: 50%;
                 margin-bottom: 75%;
-                position: relative;
+                color: #777777;
                 margin-left: 5%;
             } 
 .portait {    
                 width: 30%;
-                padding-top: 0; 
-                margin-top: 0;
-               margin-left: 5%;
-               
+                height: 20%;
+                float:left;
+                margin-left: 0;
             }   
 
-footer      {   background-color: grey; 
-    right: 0;
-    bottom: 0;
-    left:0; 
-
+footer      {   background-color: gray;
+                right: 0;
+                bottom: 0;
+                left:0; 
+                text-align-last: left;
+              
 
 }
