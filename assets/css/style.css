@@ -60,7 +60,7 @@ hr {
 .content_box {  
                 
                 width: 940px;
-                height: 360px;
+                height: 700px;
                 border-color: #4aaaa5;
                 border-style: solid;
                 background-color: #ffffff;
@@ -95,6 +95,6 @@ footer      {   background-color: gray;
                 bottom: 0;
                 left:0; 
                 text-align-last: left;
-              position: fixed;
+                position: fixed;
 
 }

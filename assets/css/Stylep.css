@@ -1,11 +1,10 @@
 h4      {margin-left: 5%;
-        }        
+        background-color: #4aaaa5;
+        width: 100px;
+        height: 10px;        
+}        
 
-img 
-        {     
-                height: 200px;
-                 width: 25%;
-}
+
 
 .content_box_1 {  
                 
@@ -19,4 +18,42 @@ img
 
 
 
-    }               
+    }
+    
+.box_left { 
+        position: relative;
+        text-align: center;
+        color: white;
+        margin-right: 80%;
+        } 
+
+
+
+
+.name_left {
+        position: absolute;
+        top: 82%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        background-color: #4aaaa5;
+
+}
+.box_center { 
+        margin-top: -18%;
+        margin-right: 43%;
+        position: relative;
+        text-align: center;
+        color: white;
+        top: 82%;        
+} 
+
+.name_center {
+                position: absolute;
+                top: 82%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 150px;
+                background-color: #4aaaa5;
+                     
+        }
