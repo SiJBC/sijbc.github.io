@@ -4,21 +4,23 @@ h1 {
     color:white;
     background-color:#4aaaa5;
     height: 65px;
-    width: 40%;
+    width: 354px;
     font-size: 55px;
     align-content: centre; 
-    margin-left: 5%;
+    margin-left: 15%;
     margin-right: 25%;
     margin-bottom: 1px;
 }
 
 .menu{          
     font-size: 15px;
-    margin-left: 75%;
+    margin-left: 60%;
     position: fixed;
-    margin-top: -5%;
+    margin-top:-3%;
+    
    
-} 
+}
+
 hr { 
     display: block;
     color: #4aaaa5;
@@ -33,6 +35,7 @@ hr {
 h2 {
    color: #4aaaa5;
     margin-left: 5%;
+    margin-top: 0%;;
     
 
 }
@@ -50,6 +53,10 @@ body {
                 background-image: url('../images/ripples.png') ;
                     }
 
+header{                 background-color: #ffffff ;
+                        margin-top: -3%;
+                    }
+
 
 hr { 
                         display: block;
@@ -65,7 +72,7 @@ hr {
                 border-style: solid;
                 background-color: #ffffff;
                 margin-bottom: 15%;
-                margin-left: 5%;
+                margin-left: 15%;
         
 
 
