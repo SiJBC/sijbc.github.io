@@ -1,195 +1,217 @@
-// / 
-// start timer 
-// display questions
-//    for loop to display the choice array
-//        create element
-// set button text set.buttonAttribute (attribute sets the data)
-// on click 
-//condition to check if answer is question 
-// if  
-// correct answer = this.attribute
-// one elemnet is the answer  
-// remove text and then laod the new question
-// else
-//time penalty
+var currentHour = 0;
+var timeValue = 0;
+var textAreaValue = 0;
+var saveIndex = "";
+var displayText = ""
+var userText = ""
 
 
 
-var questions = [
+// Current Date and Time
+var m = moment();
+console.log(m);
+currentHour = m.hour();//this is in format
 
-  {
-    title: "Commonly used data types DO NOT include ?",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts"
-  },
-  {
-    title: "The condition in an if / else statement is enclosed within ____ ?",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
-  },
+// Create from ISO 8601 String
+m = moment("2019-05-19T23:10:00.000+05:00");
 
-]
+// Using a format
+m = moment("14/06/2019 4:50PM", "DD/MM/YYYY h:mmA");
+
+// Create using milliseconds since epoch (1st Jan 1970)
+m = moment(600000);
+
+// Create using seconds since epoch (1st Jan 1970)
+m = moment.unix(7200);
+
+// Create a moment object in UTC mode
+m = moment.utc("2019-05-19T23:10:00.000+05:00");
+
+m = moment();
+
+var timeIdArray = [m.format('09:00'), m.format('10:00'), m.format('11:00'), m.format('12:00'), m.format('13:00'), m.format('14:00'), m.format('15:00'), m.format('16:00'), m.format('17:00')];
+var textAreaValue = [""]
+console.log(`toString() => ${m.toString()}`);
+console.log(`toISOString() => ${m.toISOString()}`);
 
 
-
-var answer1El = document.querySelector("#answer1");
-var questionEl = document.querySelector("#question");
-var timerEl = document.querySelector(".timer");
-var secondsLeft = 100;
-timerEl.textContent = secondsLeft;
-var finalTime = ""
-timeLeft = ""
-
-// tried to implement conidition to end game if time reached zero but was unable to run the condition below
-if (secondsLeft <= 0) {
-  alert("Sorry times up try again")
-  clearInterval(timeLeft)
+function update() {
+    $('#minutes').html(moment().format('HH:mm:ss'));
 }
 
-$("#click-me").on("click", function startTimer() {
+setInterval(update, 1000);
 
-  var timeLeft = setInterval(function () {
-    secondsLeft--;
-    timerEl.textContent = secondsLeft;
-    finalTime = secondsLeft
-   
+interval = setInterval(function () {
+    // location.reload();
+    $('#seconds').html(moment().format('HH'));
+    // var currentHour = secondsDisplayEl.textContent;
+    // console.log(currentHour);
+}, 1000);
 
-  }, 1000);
+var displayCurrentDay = m.format("dddd DD MMMMM YYYY")
 
-  $(this).hide();
+$("#currentDay").text(m.format("dddd DD MMMM YYYY"));
+console.log(m.format("dddd DD MMMM YYYY"))
 
-  // set up a boolean to check if timer is running and then change to initally to false, 
-  // using validations, using an if statement 
+// display schedule with a loop, by creating each element according to the time array
+displaySchedule()
+function displaySchedule() {
+    for (i = 0; i < timeIdArray.length; i++) {
+        var userForm = $("<textarea>").addClass("textarea row save comapre-time time-block")
+        // Add id, task9, task10
+        userForm.append(userForm);
+        var timeId = $("<div>")
+        var saveButton = $("<button>").addClass("saveBtn")
+        timeId.text(timeIdArray[i])
+        timeId.attr("value", timeIdArray[i])
+        userForm.attr("id", timeIdArray[i])
+        timeId.addClass("compare-time time-block")
+        saveButton.addClass("saveBtn")
+        saveButton.attr("value", timeIdArray[i])
+        saveButton.text("save")
 
+        $(".container").append(timeId, saveButton, userForm)
+        // $(".container").append(saveButton)
+        // $(".container").append(timeId)
 
+        // $(".container").append(userForm)
 
-  displayQuestion1()
-});
-function displayQuestion1() {
-  $("#question").text(questions[0].title);
+    }
 
-  // this loops through the choices array to create a button for each choice[i]
-
-  for (var i = 0; i < questions[0].choices.length; i++) {
-
-    var answersBtns = $("<button>");
-    //dynamically creating a button   
-    // setting the text of each button to to display the choice 
-    answersBtns.addClass("multiple-choice")
-    answersBtns.text(questions[0].choices[i]);
-
-    //  assign an attribute for each answer to each button 
-    answersBtns.attr("value", questions[0].choices[i]);
-
-    // make all the buttons appear on the page appending the element or child
-
-    $("#answers").append(answersBtns);
-
-
-  }
 }
-// create a variable for uthe users choice so that we have a value to compare to the right answer
-var userChoice = ""
-
-// create an onclick function to determine what the user choice
-$("#answers").on("click", function (event) {
-  //console log to make sure that the users choice is captured
-  console.log(event.target)
-  // var userChoice = $(this).val();
-  var userChoice = event.target.value
-  console.log(userChoice + "your pick");
-  console.log(questions[0].answer + "is the answer");
-  console.log(userChoice)
-
-  // check that the users choice matches the answer
+compareTime()
+// function to compare if the displaytime to the current hour
+function compareTime() {
+    setInterval(function () {
+        // .eachfunction as the jquery loop alternative to for 
+        $(".compare-time").each(function () {
+            // created time value so that we could compare to value attribute added 
+            // change time value from a string into a number so that can compare value
+            var timeValue = parseInt($(this).attr("value"))
+            // assigning values to the text area to register which box is storing the user input
+            var textAreaValue = parseInt($(this).attr("value"))
 
 
-  if (userChoice === questions[0].answer) {
-    console.log("yes the answer is " + userChoice)
-    // if the answer is correct we can clear question 1
-    $("#answers").empty();
-    $("#question").empty();
-    // then we can run the same code for question 1 just replacing the value to question 2
-    displayQuestion2()
-    function displayQuestion2() {
-      $("#question").text(questions[1].title);
-      for (var i = 0; i < questions[1].choices.length; i++) {
-        var answersBtns = $("<button>");
-        answersBtns.addClass("multiple-choice")
-        answersBtns.text(questions[1].choices[i]);
-        answersBtns.attr("value", questions[1].choices[i]);
-        $("#answers1").append(answersBtns);
-      }
 
-    }
-  }
+            if (timeValue === currentHour) {
+                // create class for each value based on comparison
+                $(this).removeClass("past")
+                $(this).addClass("present")
+            }
+            else if (timeValue < currentHour) {
+                $(this).removeClass("present")
+                $(this).addClass("past")
+                //  })
+            }
+            else {
+                $(this).addClass("future")
 
-  else {
-    wrongAnswer();
+            }
+        })
+    }), 3000;
+}
 
-  
-    function wrongAnswer() {
-      penalty();
-      function penalty() {
-        secondsLeft -= 10;
-      }
-    }
-  }
-});
+// var userText = $(".textarea").each(function(){
+//     $(".textarea").append()
+// });
 
-$("#answers1").on("click", function (event) {
-  var userChoice = event.target.value;
-  console.log(questions[1].answer)
-  if (userChoice === questions[1].answer) {
-    console.log("yes the answer is " + userChoice)
-    $("#answers1").empty();
-    $("#question").empty();
-    $(".timer").hide(); 
-    function saveScore ()
-    {
-      // saving user time to local storage
-      localStorage.setItem("timer", finalTime)
-      var displayScore = localStorage.getItem("timer");
-      $("#answers2").text("your final time is " + displayScore + " congratulation")
-      console.log(displayScore)
-      clearInterval(secondsLeft);
-    }
-  // adding button to display high scores 
-    saveScore();
-    var highScores = $("<button>");
-    displayHighScores()
+
+
+
+
+$(".saveBtn").on("click", function saveInfo(event) {
+
+    // event.preventDefault();
+    // var userInput = $(".textarea").val()
+    var userInput = $(this).next(".textarea").val()
+    var userTextValue = JSON.stringify(userInput)
+    saveIndex = $(this).attr("value");
+    // registering which save button is clicked 
+    console.log(userTextValue, saveIndex)
+    // console.log(this)
+    //    establish variable to have value which represents the userText
+    // userText = $(".textarea").val()
+    // save variable to local storage
+    localStorage.setItem(saveIndex, userTextValue)
+
+})
+
+
+function displaySavedText() {
+
+    $("textarea").each(function(){
+        var timeId = $(this).attr("id")
+        console.log("timeId is " + timeId)
+        $(this).val(localStorage.getItem(timeId))
+        
+        var displayText = JSON.parse(localStorage.getItem(timeId))
+        // console.log(saveIndex)
+        // console.log(saveIndex, userText)
+        // check that the variable is being saved in local storage and stores the value of the users text
+        var timeDisplayEl = $("textarea").attr("timeDisplay")
+        // console.log(timeDisplayEl)
     
-  // began trying to implement functions for displaying highscores
-    // function displayHighScores(){
-      // $("#highscores").text("display high scores");
-      // highScores.addClass("high-score")
-      // $("#highscores").append(displayHighScores)
-
-    // }
-    
-//     $("#answers2").on("click"), function seeHighScores(){
-// console.log(event.target)
-//       $("#answers2").hide
-//       $("#highscores").hide
-//     }
-
-  
-  }
+        console.log("text Retrieved from LocalStorage is " + displayText)
 
 
-else {
-  wrongAnswer();
+        // if (localStorage.getItem(saveIndex)) {
+        // }
+        // $("textarea").text(localStorage.setItem(userTextValue))
+        //    display saved value in text area which matches value of that saved item
+        $("textarea").append(displayText)
+        // $("textarea").attr("timeDisplayEl").text(displayText)
+        //    var saveText = JSON.parse(displayText)
+        // timeDisplayEl.text(saveText)
+        // savedSchedule()
+        // console.log(saveText)  
 
-  // alert("no that is wrong try again before the time runs out but be careful 10 second time penalty for every wrong answer")
 
-  function wrongAnswer() {
-    penalty();
-    function penalty() {
-      secondsLeft -= 10;
-    }
-  }
+
+        // In each loop
+
+        // 1. Get The timeId
+        // 2. Use timeId to get Value from LocalStorage
+        // 3. Create a TextArea
+        // 4. Fill TextArea value with previously retireved value from step 2
+        // 5. Find corresponding row for the index
+        // 5. Attach the above TextArea to correcponding row
+    })
+
 }
-});
+displaySavedText()
+
+$("#clear").on("click", function clearItems(event){
+      localStorage.clear();
+        console.log("clear")
+})
+
+
+
+
+
+
+
+
+
+
+        // 
+
+        // })
+
+
+
+
+
+
+
+
+
+
+
+        // })
+
+
+
 
 
 
