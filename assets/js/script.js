@@ -46,6 +46,8 @@ $(document).ready(function () {
         $(".day3").empty();
         $(".day4").empty();
         $(".day5").empty();
+        $(".savedCity").empty();
+        localStorage.clear()
 
     })
 
@@ -142,9 +144,9 @@ $(document).ready(function () {
         var httpsUrl = ""
                     
         if (location.protocol === 'http:') {
-            httpsUrl = 'http://api.openweathermap.org/data/2.5/forecast?q';
+            httpsUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=';
          } else {
-            httpsUrl = 'https://api.openweathermap.org/data/2.5/forecast?q';
+            httpsUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=';
          }
         var queryUrl = httpsUrl + city + "&appid=" + apiKey;
 
