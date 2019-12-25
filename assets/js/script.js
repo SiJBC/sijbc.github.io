@@ -95,7 +95,7 @@ $(document).ready(function () {
             httpsUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
          }
         var queryUrl = httpsUrl + city + "&appid=" + apiKey;
-        
+
         console.log($(this))
         $.ajax({
             url: queryUrl,
@@ -204,7 +204,7 @@ $(document).ready(function () {
 
                 $(".city").prepend("<h4>" + formatedDate1 + "</h4>");
                 $(".day1").append("<h4>" + formatedDate1 + "<h4>");
-                $(".day1").append("<p>" + "Humidity:" + response.list[0].main.humidity + "</p>");
+                $(".day1").append("<p>" + "Humidity1:" + response.list[0].main.humidity + "</p>");
                 $(".day1").append("<p><ul>" + "Temperature (c)" + ((response.list[0].main.temp) - 273).toFixed(2) + "<ul></p>");
 
                 $(".day2").append("<h4>" + formatedDate2 + "<h4>");
