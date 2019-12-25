@@ -86,7 +86,16 @@ $(document).ready(function () {
         $(".day5").empty();
 
         // the ajax api call for todays weather
-        var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+
+        var httpsUrl = ""
+                    
+        if (location.protocol === 'http:') {
+            httpsUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
+         } else {
+            httpsUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+         }
+        var queryUrl = httpsUrl + city + "&appid=" + apiKey;
+        
         console.log($(this))
         $.ajax({
             url: queryUrl,
@@ -129,7 +138,15 @@ $(document).ready(function () {
     // displaying the 5 day forecast
     function displayForecast(city) {
         $(".city").empty();
-        var queryUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+
+        var httpsUrl = ""
+                    
+        if (location.protocol === 'http:') {
+            httpsUrl = 'http://api.openweathermap.org/data/2.5/forecast?q';
+         } else {
+            httpsUrl = 'https://api.openweathermap.org/data/2.5/forecast?q';
+         }
+        var queryUrl = httpsUrl + city + "&appid=" + apiKey;
 
         console.log($(this))
         $.ajax({
@@ -161,23 +178,23 @@ $(document).ready(function () {
 
                 // formatting icons 
                 iconCode1 = response.list[0].weather[0].icon
-                var iconUrl1 = "https://openweathermap.org/img/w/" + iconCode1 + ".png"
+                var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1 + ".png"
                 $('.day1').append($('<img />').attr('src', iconUrl1));
 
                 iconCode2 = response.list[10].weather[0].icon
-                var iconUrl2 = "https://openweathermap.org/img/w/" + iconCode2 + ".png"
+                var iconUrl2 = "http://openweathermap.org/img/w/" + iconCode2 + ".png"
                 $('.day2').append($('<img />').attr('src', iconUrl2));
 
                 iconCode3 = response.list[17].weather[0].icon
-                var iconUrl3 = "https://openweathermap.org/img/w/" + iconCode3 + ".png"
+                var iconUrl3 = "http://openweathermap.org/img/w/" + iconCode3 + ".png"
                 $('.day3').append($('<img />').attr('src', iconUrl3));
 
                 iconCode4 = response.list[24].weather[0].icon
-                var iconUrl4 = "https://openweathermap.org/img/w/" + iconCode4 + ".png"
+                var iconUrl4 = "http://openweathermap.org/img/w/" + iconCode4 + ".png"
                 $('.day4').append($('<img />').attr('src', iconUrl4));
 
                 iconCode5 = response.list[31].weather[0].icon
-                var iconUrl5 = "https://openweathermap.org/img/w/" + iconCode5 + ".png"
+                var iconUrl5 = "http://openweathermap.org/img/w/" + iconCode5 + ".png"
                 $('.day5').append($('<img />').attr('src', iconUrl5));
 
 
@@ -218,7 +235,14 @@ $(document).ready(function () {
                 // this can be demonstrated by the different times which the information is displayed on the page
 
                 function displayUv() {
-                    var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=9edde4d3d50871b7d0d7074d24782ded&lat=" + lat + "&lon=" + lon;
+                    var httpsUrl = ""
+                    
+                    if (location.protocol === 'http:') {
+                        httpsUrl = 'http://api.openweathermap.org/data/2.5/uvi?';
+                     } else {
+                        httpsUrl = 'https://api.openweathermap.org/data/2.5/uvi?';
+                     } 
+                    url = httpsUrl + "&lon" + lat + "&lon=" + lon;
                     $.ajax({
                         url: uvUrl,
                         method: "GET",
@@ -249,8 +273,14 @@ $(document).ready(function () {
             var lng = position.coords.longitude
 
             console.log(lat, lng)
-
-            latLonUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&appid=" + apiKey
+            var httpsUrl = ""
+                    
+            if (location.protocol === 'http:') {
+                httpsUrl = 'http://api.openweathermap.org/data/2.5/weather?';
+             } else {
+                httpsUrl = 'https://api.openweathermap.org/data/2.5/weather?';
+             }
+            latLonUrl = httpsUrl + "lat=" + lat + "&lon=" + lng + "&appid=" + apiKey
 
             $.ajax({
                 url: latLonUrl,
@@ -267,9 +297,15 @@ $(document).ready(function () {
 
                     iconCode = response.weather[0].icon
                     console.log(iconCode)
-
-
-                    var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png"
+                    
+                    var httpsUrl = ""
+                    
+                    if (location.protocol === 'http:') {
+                        httpsUrl = 'http://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f';
+                     } else {
+                        httpsUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f';
+                     }
+                    var iconUrl = httpsUrl + iconCode + ".png"
                     $('.city').append($('<img />').attr('src', iconUrl));
                     $(".city").prepend("<h2>" + response.name + " Weather today" + "</h2>");
                     $(".city").append("<p>" + "Wind Speed:" + response.wind.speed + "</p>");
