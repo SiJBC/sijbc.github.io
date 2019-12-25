@@ -16,6 +16,7 @@ $(document).ready(function () {
         displayWeather(lastCity);
         displayForecast(lastCity);
        
+       
     }
 
 
@@ -35,6 +36,8 @@ $(document).ready(function () {
     // also clears the previous results
     $(document).on('click', '.saved', function () {
         var city = localStorage.getItem($(this).text())
+        $(".savedCity").empty();
+        localStorage.clear()
         console.log(city)
         displayWeather(city)
         displayForecast(city);
@@ -46,8 +49,8 @@ $(document).ready(function () {
         $(".day3").empty();
         $(".day4").empty();
         $(".day5").empty();
-        $(".savedCity").empty();
-        localStorage.clear()
+        
+        
 
     })
 
@@ -244,7 +247,7 @@ $(document).ready(function () {
                      } else {
                         httpsUrl = 'https://api.openweathermap.org/data/2.5/uvi?';
                      } 
-                    url = httpsUrl + "&lon" + lat + "&lon=" + lon;
+                    uvUrl = httpsUrl + "lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
                     $.ajax({
                         url: uvUrl,
                         method: "GET",
