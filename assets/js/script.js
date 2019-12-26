@@ -307,9 +307,9 @@ $(document).ready(function () {
                     var httpsUrl = ""
                     
                     if (location.protocol === 'http:') {
-                        httpsUrl = 'http://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f';
+                        httpsUrl = 'http://openweathermap.org/img/w/';
                      } else {
-                        httpsUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=21.1682895&lon=-101.6723306&units=imperial&APPID=ec50a6072ac189dee111acdd3a38ab9f';
+                        httpsUrl = 'https://openweathermap.org/img/w/';
                      }
                     var iconUrl = httpsUrl + iconCode + ".png"
                     $('.city').append($('<img />').attr('src', iconUrl));
