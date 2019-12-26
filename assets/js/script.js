@@ -15,6 +15,7 @@ $(document).ready(function () {
         console.log("Last city is " + lastCity);
         displayWeather(lastCity);
         displayForecast(lastCity);
+        
        
        
     }
@@ -130,7 +131,7 @@ $(document).ready(function () {
                 // adding the buttons to access the previous history
 
                 if (localStorage.getItem(response.name) === null) {
-                    $(".savedCity").append("<ol><button>" + response.name + "<ol></button>")
+                    $(".savedCity").append("<button>" + response.name + "</button>")
                     $(".savedCity").children().last().addClass("saved")
                     $(".savedCity").children().last().attr("Id", response.name)
                 }
@@ -326,7 +327,7 @@ $(document).ready(function () {
 
     function displayHistory() {
         for (i = 0; i < localStorage.length; i++) {
-            $(".savedCity").append("<ol><button>" + localStorage.getItem(localStorage.key(i)) + "<ol></button>")
+            $(".savedCity").append("<button>" + localStorage.getItem(localStorage.key(i)) + "</button>")
             $(".savedCity").children().last().addClass("saved")
             $(".savedCity").children().last().attr("Id", localStorage.getItem(localStorage.key(i)))
         }
