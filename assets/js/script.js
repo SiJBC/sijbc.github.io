@@ -37,8 +37,6 @@ $(document).ready(function () {
     // also clears the previous results
     $(document).on('click', '.saved', function () {
         var city = localStorage.getItem($(this).text())
-        $(".savedCity").empty();
-        localStorage.clear()
         console.log(city)
         displayWeather(city)
         displayForecast(city);
