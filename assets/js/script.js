@@ -11,7 +11,7 @@ $(document).ready(function () {
         getLocation();
     }
     else {
-        let lastCity = $(".savedCity").children().last().attr('id')
+        let lastCity = localStorage.getItem("last city stored")
         console.log("Last city is " + lastCity);
         displayWeather(lastCity);
         displayForecast(lastCity);
@@ -24,10 +24,17 @@ $(document).ready(function () {
     // implements the search function from the users input
     $("#search").on("click", function () {
         var city = $("#searchTerm").val().trim();
+        event.preventDefault 
+
+        var cityArray = [$("#searchTerm").val().trim()]
+
         displayWeather(city);
         displayForecast(city);
-
+        
+        console.log(cityArray)
         $("#searchTerm").val('')
+
+        localStorage.setItem("last city stored" ,cityArray)
 
 
     })
