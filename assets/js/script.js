@@ -1,5 +1,5 @@
 var apiKey = "4915deb164cf151c9e3b329f1c2270a7";
-
+var pastCities = JSON.parse(localStorage.getItem("pastCities")) || []
 
 $(document).ready(function () {
 
@@ -7,11 +7,11 @@ $(document).ready(function () {
     displayHistory()
 
     // checks if there are no previous searches and then asks user to activate geolocation tracking services
-    if (localStorage.length === 0) {
+    if (pastCities.length === 0) {
         getLocation();
     }
     else {
-        let lastCity = localStorage.getItem("last city stored")
+        let lastCity = pastCities[pastCities.length -1]
         console.log("Last city is " + lastCity);
         displayWeather(lastCity);
         displayForecast(lastCity);
@@ -26,7 +26,7 @@ $(document).ready(function () {
         var city = $("#searchTerm").val().trim();
         event.preventDefault 
 
-        var cityArray = [$("#searchTerm").val().trim()]
+        // var cityArray = [$("#searchTerm").val().trim()]
 
         displayWeather(city);
         displayForecast(city);
@@ -34,7 +34,7 @@ $(document).ready(function () {
         console.log(cityArray)
         $("#searchTerm").val('')
 
-        localStorage.setItem("last city stored" ,cityArray)
+        // localStorage.setItem("last city stored" ,cityArray)
 
 
     })
@@ -135,14 +135,16 @@ $(document).ready(function () {
 
                 // adding the buttons to access the previous history
 
-                if (localStorage.getItem(response.name) === null) {
+                if (pastCities.indexOf(response.name) === -1) {
                     $(".savedCity").append("<button>" + response.name + "</button>")
                     $(".savedCity").children().last().addClass("saved")
                     $(".savedCity").children().last().attr("Id", response.name)
+                    pastCities.push(response.name)
+                    localStorage.setItem("pastCities", JSON.stringify(pastCities))
                 }
 
 
-                localStorage.setItem(city, city)
+                
 
             })
     }
@@ -331,10 +333,10 @@ $(document).ready(function () {
     // we loop through the local storage to make sure that each previously searched for city remains on the page
 
     function displayHistory() {
-        for (i = 0; i < localStorage.length; i++) {
-            $(".savedCity").append("<button>" + localStorage.getItem(localStorage.key(i)) + "</button>")
+        for (i = 0; i < pastCities.length; i++) {
+            $(".savedCity").append("<button>" + pastCities[i] + "</button>")
             $(".savedCity").children().last().addClass("saved")
-            $(".savedCity").children().last().attr("Id", localStorage.getItem(localStorage.key(i)))
+            $(".savedCity").children().last().attr("Id", pastCities[i])
         }
     }
 
