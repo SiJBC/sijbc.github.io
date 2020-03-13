@@ -1,238 +1,599 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<title>Kung Fu Coder</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Andika' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src=assets/script.js></script>
+<style>
+  .hidden {
+    display: none;
+  }
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Webpixels">
-
-    <title>Simon Colman portfolio</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800">
-
-    <!-- Font Awesome 5 -->
-    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
-
-
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="./assets/css/theme.css">
-    <link rel="stylesheet" href="./assets/css/bootstrap-social.css">
+  .display {
+    display: block;
+    animation: slide-up 1s ease;
+  }
 
 
-</head>
+  body {
+    font-family: 'Andika';
+
+  }
+
+
+  button {
+    border: none;
+    background: #3a7999;
+    color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+    cursor: pointer;
+
+
+  }
+
+  img {
+    margin-top: 125px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+  }
+
+  h1 {
+    font-family: Tangerine;
+    font-size: 96px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 23px;
+    margin-top: 35px;
+  }
+
+  h3 {
+    font-family: Tangerine;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 23px;
+    margin-top: 35px;
+  }
+
+
+  .titleDesciption {
+    font-size: 2048px;
+    margin-top: 55px;
+    padding-top: 25px;
+    margin-left: 125px;
+    font-family: Tangerine;
+    font-size: 17px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 23px;
+  }
+
+  p {
+    font-family: Tangerine;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+
+  blockquote {
+    font-family: Tangerine;
+    font-size: 17px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+
+  pre {
+    font-family: Tangerine;
+    font-size: 11px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+
+  p {
+    font-family: Tangerine;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+
+  blockquote {
+    font-family: Tangerine;
+    font-size: 17px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+
+  pre {
+    font-family: Tangerine;
+    font-size: 11px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+
+
+
+  .taichi-container {
+    margin-bottom: auto;
+    margin-right: 350px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: solid 2px black;
+    /* For some browsers, it may have insufficient radius issue. We use over-radius tricks to fix it */
+    border-radius: 60%;
+    background-color: black;
+  }
+
+
+
+  .taichi-white {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: white;
+    border: solid 0 white;
+    box-sizing: border-box;
+    border-top-left-radius: 100% 50%;
+    border-bottom-left-radius: 100% 50%;
+  }
+
+  .taichi-white:before {
+    content: ' ';
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    border-radius: 60%;
+  }
+
+  .taichi-white:after {
+    content: ' ';
+    width: 10%;
+    height: 5%;
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+    left: 95%;
+    top: 22.5%;
+    border-radius: 60%;
+  }
+
+  .taichi-black {
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    background-color: black;
+    border: solid 0px black;
+    box-sizing: border-box;
+    border-bottom-right-radius: 100%;
+  }
+
+  .taichi-black:before {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+    left: -50%;
+    bottom: 0%;
+    border-radius: 60%;
+  }
+
+
+
+  .taichi-black:after {
+    content: ' ';
+    width: 10%;
+    height: 10%;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    border-radius: 60%;
+  }
+
+  .rotator:hover~.taichi-container {
+    animation: rotate-animation 4s linear infinite;
+    animation-play-state: play;
+  }
+
+  .rotator~.taichi-container {
+    animation: rotate-animation 4s linear infinite;
+    animation-play-state: paused;
+  }
+
+
+
+
+
+  @keyframes rotate-animation {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
 
 <body>
 
+  <!-- Side Navigation -->
+  <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
+    <h1 class="w3-xxxlarge w3-text-theme">Follow on Social Media</h1>
+    <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+    <a href="https://github.com/SiJBC" class="w3-bar-item w3-button">Github Profile</a>
+    <a href="https://www.linkedin.com/in/simon-colman-628344109/" class="w3-bar-item w3-button">LinkedIn</a>
+    <a href="https://twitter.com/Simoncolman4" class="w3-bar-item w3-button">Twitter</a>
+  </nav>
 
-    <header class="header-transparent" id="header-main">
+  <!-- Header -->
+  <header class="w3-container w3-theme-l4 " id="myHeader">
 
-        <!-- Search -->
+    <div class="w3-left">
 
+      <br>
+      <h1>
+        Kung Fu
+        <br>
+        <br>
+        <br>
+        <br>Coder</h1>
 
+      <img src="assets/images/rsz_11.png" alt="Kung Fu coder">
 
+    </div>
 
+    <br>
 
-        <!-- Main navbar -->
+    <div id="rotation-checkbox" type="checkbox" class="rotator"> <label for="rotation-checkbox">
+        <i onclick="w3_open()" class="w3-right fa fa-bars w3-xlarge w3-button"> click to find me on social
+          media</i></label></div>
+    <div aria-hidden="true" aria-label="Taichi" class="taichi-container w3-hide-small">
+      <div class="taichi-white"></div>
+      <div class="taichi-black"></div>
 
-        <nav class="navbar navbar-main navbar-expand-md navbar-sticky navbar-transparent navbar-dark bg-dark"
-            id="navbar-main">
-            <div class="container">
-
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse"
-                    aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbar-main-collapse">
-                    <ul class="navbar-nav align-items-lg-center">
-
-                        <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                            <h2 class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">Resources</h2>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
-                                <div class="list-group">
-                                    <a href="https://github.com/SiJBC" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <button class="fab fa-github"></button>
-                                            <div class="media-body ml-3">
-                                                <h6 class="#44444">Github</h6>
-                                                <p class="mb-0">See my latest projects and repositories</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/simon-colman-628344109/"
-                                        class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <button class="fab fa-linkedin"></button>
-                                            <div class="media-body ml-3">
-                                                <h6 class="#007BB6">Linkedin</h6>
-                                                <p class="mb-0">Connect with me on Linkedin</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="./assets/SC_resume.pdf" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <button class="far fa-file"></button>
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Resume</h6>
-                                                <p class="mb-0">Check out my latest resume </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-
-    </header>
+      <div id="rotation-checkbox" type="checkbox" class="rotator"></div>
 
 
+  </header>
+
+  <!-- Modal -->
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+      <header class="w3-container w3-theme-l1">
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-display-topright">×</span>
+
+      </header>
+      <div class="w3-padding">
+        <p>
+          <h3>Simon Colman</h3>
+          <p> 278 Edgelciff Rd Woollahra 2025 0403 373 588</p>
+          <h3>Experience</h3>
+          <li> 1. May 2018 – Present, contractor and site supervision (adhoc)</li>
+          <li> 2. May 2018 – Present, Security services in consolidated press holdings (adhoc)</li>
+          <li> 3. May2018 – Present, Loss prevention apple bondi and apple city for eastside
+            protection. Protecting apple staff and assets.</li>
+          <li> 4. July 2017 – June 2018, YMCA gym floor instructor, personal trainer and
+            group exercise instructor. Epping, UNSW and Ku – Ring Gai</li>
+          <li> 5. January 2016 – Present, Corporate fitness center supervisor and group
+            fitness instructor.</li>
+          <li>
+            6. Jan 2014 – Jan 2016, personal training franchise operater in anytime fitness
+            potts point.</li>
+          <li>
+            7. Jan 2012 – December 2013, personal training franchise in Castlereagh
+            Aquatic and fitness centre.</li>
+          <li> 8. April 2010 – September 2013, Worked as a Personal Trainer at Vision
+            personal training east Sydney.</li>
+          <li>
+
+            9. August 2008 – February 2010, Worked as Gym floor instructor and personal
+            trainer at the Willoughby Leisure Centre.</li>
+          <li> 10. June 2006 – July 2008, Ran personal training franchise at Fitness First Pitt st.
+            This was my first job after finishing my personal training qualification.</li>
+          <li> 11. November 2004 – February 2006. I worked as a martial arts instructor in the
+            A.H.A centre in Zurich in Switzerland.</li>
+          <h3> Qualifications</h3>
+          <li>
+            • 2003 – VCE, Complete Year 12 at Geelong Grammar School Corio</li>
+          <li> • 2005 - Cert III and IV in fitness master trainer (currently registered)</li>
+          <li> • 2008 – Brandon Raynor Shiatsu and Remedial Massage (registration expired)</li>
+          <li> • 2010 – Dry needling Myofacia release (registration expired)</li>
+          <li> • 2010 – Senior Punch Fit Group Boxing instructor (current registration)</li>
+          <li> • 2019 – apply senior First Aid First initially completed in 2005 but annually
+            renewed.</li>
+          <li> • 2017 - Certificate II in risk management and security operations</li>
+          <li> • 2017 – Responsible Service of Alchohol</li>
+
+          <p>
+            References (contact details available upon request) Jace Kirk – Former Employer
+            Paul Betts – Former Manager
+            Wayne Dart - Employer
+          </p>
+        </p>
+      </div>
+      <footer class="w3-container w3-theme-l1">
+        <p><a class="w3-btn" href="assets/SC_Resume.pdf">Download a copy</a></p>
+      </footer>
+    </div>
+  </div>
 
 
 
-    <main>
-
-
-
-
-
-
-
-        <!-- Spotlight -->
-        <section class="sice slice-lg bg-gradient-primary pb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 py-lg">
-                        <div class="">
-                            <h2 class="display-4 text-white mb-4 lh-110">Simon Colman professional portfolio</h2>
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <p class="lead text-white lh-180">Full stack web developer, specialising in html,
-                                        css and javascript.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <div class="row row-grid align-items-center">
-            <div class="col-lg-7 order-lg-2 ml-lg-auto">
-                <img alt="Image placeholder" src="./assets/img/screenshot_project.png"
-                    class="img-center img-fluid rounded shadow">
-            </div>
-
-            <div class="col-lg-5 order-lg-1">
-                <div class="pr-lg-5">
-                    <h3 class="heading h3">Netflix, watch this group project 1</h3>
-                    <p class="lead text-gray my-4">.</p>
-                    <uL>
-                        <li>
-                            <a href="https://sijbc.github.io/project1/" class="link font-weight-bold" data-link="1">See
-                                project deployed</a>
-                        </li>
-
-                        <li>
-                            <a href="https://github.com/SiJBC/project1" class="link font-weight-bold" data-link="1">See
-                                project repo</a>
-                        </li>
-
-
-                    </uL>
-                </div>
-            </div>
+  <div class="w3-container w3-blue-grey">
+    <div class="w3-left">
+      <h3>"Hi I am Simon
+        <br>
+        <br> there are 2 things I love doing, martial arts and building full stack applications"
+        <br>
+        <br>
+      </h3>
+    </div>
+  </div>
+  <div class="w3-center margin-left">
+    <div class="w3-quarter">
+      <div class="w3-card">
+        <!-- <img src="assets/images/4.png" alt="Car" style="width:100%"> -->
+        <div class="w3-container">
+          <br>
+          <p>
+            Coming Soon
+          </p>
+          <!-- <button id="onePageMan" class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey"
+          .style.display='block' style="font-weight:900;">Find out more</button> -->
+          <br>
         </div>
-        <div class="row row-grid">
-            <div class="col-lg-6">
-                <a href="#" class="card border-0" data-animate-hover="1">
-                    <div class="animate-this">
-                        <img alt="Image placeholder" class="rounded z-depth-3 img-fluid"
-                            src="./assets/img/weather_api_screenshot.png">
-                        <span class="mask bg-dark opacity-3"></span>
-                        <span class="mask mask--hover bg-gradient-primary opacity-4"></span>
-                        <div class="card-img-overlay d-flex">
-                        </div>
-                    </div>
-                    <uL>
-                        <li>
-                          <a href="https://sijbc.github.io/weather_dashboard/." class="link font-weight-bold" data-link="1">See weather dashboard deployed</a>
-                        </li>  
-                      
-                      <li>
-                          <a href="https://github.com/SiJBC/weather_dashboard" class="link font-weight-bold" data-link="1">See weather dashboard repo repo</a>
-                      </li>
-                          
+      </div>
+    </div>
+  </div>
 
-                      </uL>
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <a href="#" class="card border-0" data-animate-hover="1">
-                    <div class="animate-this">
-                        <img alt="Image placeholder" class="rounded z-depth-3 img-fluid"
-                            src="./assets/img/workday_screenshot.png">
-                        <span class="mask bg-dark opacity-3"></span>
-                        <span class="mask mask--hover bg-gradient-primary opacity-4"></span>
-                        <div class="card-img-overlay d-flex">
-                   
-                        </div>
-                        <uL>
-                            <li>
-                              <a href="https://sijbc.github.io/work_day_scheduler/." class="link font-weight-bold" data-link="1">See workday scheduler deployed</a>
-                            </li>  
-                          
-                          <li>
-                              <a href="https://github.com/SiJBC/work_day_scheduler" class="link font-weight-bold" data-link="1">See workday scheduler repo repo</a>
-                          </li>
-                              
-    
-                          </uL>
-                    </div>
-                </a>
-            </div>
+  <div class="w3-center margin-left">
+    <div class="w3-quarter">
+      <div class="w3-card">
+        <img src="assets/images/4.png" alt="Car" style="width:100%">
+        <div class="w3-container">
+          <br>
+          <p>
+            A full stack application that uses a mySQL database to build a beatufiul website
+          </p>
+          <button id="onePageMan" class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" .style.display='block'
+            style="font-weight:900;">Find out more</button>
+          <br>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-center margin-left">
+    <div class="w3-quarter">
+      <div class="w3-card">
+        <img src="assets/images/5.png" alt="Car" style="width:100%">
+        <div class="w3-container">
+          <p>
+            By making use of the third party rapid API we are able to randomly select you an awesome choice
+          </p>
+          <!-- <button id="netflixNav">Find out more</button> -->
+          <button id="netflixNav" class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" .style.display='block'
+            style="font-weight:900;">Find out more</button>
         </div>
-        </section>
+      </div>
+    </div>
+  </div>
+  <br>
 
-        <!-- Call to action -->
+  <div class="w3-center margin-left">
+    <div class="w3-quarter">
+      <div class="w3-card">
+        <!-- <img src="assets/images/4.png" alt="Car" style="width:100%"> -->
+        <div class="w3-container">
+          <br>
+          <p>
+            Coming Soon
+          </p>
+          <!-- <button id="onePageMan" class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey"
+          .style.display='block' style="font-weight:900;">Find out more</button> -->
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  
 
 
-    </main>
+  <div class="hidden">
+
+    <div class="w3-full">
+      <div class="w3-card">
+        <img id="imgSrc" src="" alt="Car" style="width:100%">
+      </div>
 
 
-    <footer class="footer footer-dark bg-gradient-primary">
+      <div class="w3-card">
+        <div class="w3-center">
 
-    </footer>
+          <ul><a id="deployedLink"></a></ul>
+          <ul><a id="githubRepo"></a></ul>
+          <p>
+            <div id="interesting"></div>
+          </p>
+          <p>
+            <div id="description"></div>
+          </p>
+          <h3>
+            <div id="technologies"></div>
+          </h3>
+          <ul>
+            <div id="technologies1"></div>
+          </ul>
+          <ul>
+            <div id="technologies2"></div>
+          </ul>
+          <ul>
+            <div id="technologies3"></div>
+          </ul>
+          <ul>
+            <div id="technologies4"></div>
+          </ul>
+          <ul>
+            <div id="technologies5"></div>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
 
 
-    <!-- Core -->
-    <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/vendor/in-view/dist/in-view.min.js"></script>
 
 
 
 
-
-    <!-- Theme JS -->
-
-    <script src="./assets/js/theme.min.js"></script>
+  <div class="w3-container">
 
 
+
+
+  <hr>
+  <div class="w3-container w3-blue-grey">
+    <div class="w3-center">
+      <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey"
+        onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">Check out my
+        resume</button>
+      <!-- Pagination -->
+    </div>
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-theme- w3-padding-16">
+    <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+      <span class="w3-text w3-theme-light w3-padding">Go To Top</span> 
+      <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+          <i class="fa fa-chevron-circle-up"></i></span></a>
+    </div>
+    <h3>Remember to check out my github portfolio at</h3>   <a href="https://github.com/SiJBC"
+      class="w3-btn w3-theme-light" target="_blank">github/SijbC</a></p>
+  </footer>
+
+  <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
+  <script>
+    // Side navigation
+    function w3_open() {
+      var x = document.getElementById("mySidebar");
+      x.style.width = "100%";
+      x.style.fontSize = "40px";
+      x.style.paddingTop = "10%";
+      x.style.display = "block";
+    }
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+
+    // Tabs
+    // function openCity(evt, cityName) {
+    //   var i;
+    //   var x = document.getElementsByClassName("city");
+    //   for (i = 0; i < x.length; i++) {
+    //     x[i].style.display = "none";
+    //   }
+    //   var activebtn = document.getElementsByClassName("testbtn");
+    //   for (i = 0; i < x.length; i++) {
+    //     activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
+    //   }
+    //   document.getElementById(cityName).style.display = "block";
+    //   evt.currentTarget.className += " w3-dark-grey";
+    // }
+
+    // var mybtn = document.getElementsByClassName("testbtn")[0];
+    // mybtn.click();
+
+    // Accordions
+    // function myAccFunc(id) {
+    //   var x = document.getElementById(id);
+    //   if (x.className.indexOf("w3-show") == -1) {
+    //     x.className += " w3-show";
+    //   } else {
+    //     x.className = x.className.replace(" w3-show", "");
+    //   }
+    // }
+
+    // // Slideshows
+    // var slideIndex = 1;
+
+    // function plusDivs(n) {
+    //   slideIndex = slideIndex + n;
+    //   showDivs(slideIndex);
+    // }
+
+    // function showDivs(n) {
+    //   var x = document.getElementsByClassName("mySlides");
+    //   if (n > x.length) { slideIndex = 1 }
+    //   if (n < 1) { slideIndex = x.length };
+    //   for (i = 0; i < x.length; i++) {
+    //     x[i].style.display = "none";
+    //   }
+    //   x[slideIndex - 1].style.display = "block";
+    // }
+
+    // showDivs(1);
+
+    // // Progress Bars
+    // function move() {
+    //   var elem = document.getElementById("myBar");
+    //   var width = 5;
+    //   var id = setInterval(frame, 10);
+    //   function frame() {
+    //     if (width == 100) {
+    //       clearInterval(id);
+    //     } else {
+    //       width++;
+    //       elem.style.width = width + '%';
+    //       elem.innerHTML = width * 1 + '%';
+    //     }
+    //   }
+    // }
+  </script>
 
 </body>
 
